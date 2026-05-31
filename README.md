@@ -34,23 +34,6 @@ Future Roadmap
 3. Structured Output Formatting: Adding support for diverse output formats, including Structured JSON for CI/CD integration and Terminal Tables for enhanced developer readability.
 4. Advanced Pattern Identification: Development of logic to detect unreviewed PR patterns and non-standard merge behaviors within the commit history.
 
-Usage & Output Example
-
-The following output demonstrates the Git-Hygienist engine validating a simulated set of commits, showcasing both successful validations and a failure state.
-
-ferociousmadman@fedora:~/Projects/Go/git-hygienist$ go run main.go
-Git-Hygienist: Checking your commit health...
-
-{a1b2c3d ferociousmadman feat: initial commit}
-commit type feat
-
-{e5f6g7h ferociousmadman fix: bug in main.go}
-commit type fix
-
-{j9k1l2m ferociousmadman invalid message style}
-fail
-
-
 Installation
 
 Prerequisites: Go 1.18 or higher.
@@ -58,7 +41,7 @@ Prerequisites: Go 1.18 or higher.
 To evaluate the validation logic locally, follow these steps:
 
 # Clone the public repository
-git clone [REPOSITORY_URL]
+git clone [https://github.com/ferociousmadman/git-hygienist.git]
 
 # Enter the project directory
 cd git-hygienist
@@ -71,5 +54,5 @@ Contact & Repository Info
 
 This project is maintained as a Public Go repository, reflecting a commitment to open-source standards and professional version control practices.
 
-* GitHub Profile: [Your GitHub Profile Link]
-* LinkedIn: [Your LinkedIn Profile Link]
+* GitHub Profile: [https://github.com/ferociousmadman]
+* LinkedIn: [https://www.linkedin.com/in/skipperdavies/]
