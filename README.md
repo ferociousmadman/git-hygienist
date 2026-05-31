@@ -41,7 +41,7 @@ Prerequisites: Go 1.18 or higher.
 To evaluate the validation logic locally, follow these steps:
 
 # Clone the public repository
-git clone [https://github.com/ferociousmadman/git-hygienist.git]
+git clone https://github.com/ferociousmadman/git-hygienist.git
 
 # Enter the project directory
 cd git-hygienist
@@ -54,5 +54,5 @@ Contact & Repository Info
 
 This project is maintained as a Public Go repository, reflecting a commitment to open-source standards and professional version control practices.
 
-* GitHub Profile: [https://github.com/ferociousmadman]
-* LinkedIn: [https://www.linkedin.com/in/skipperdavies/]
+* **GitHub Profile**: [ferociousmadman](https://github.com/ferociousmadman)
+* **LinkedIn**: [skipperdavies](https://www.linkedin.com/in/skipperdavies/)
