@@ -3,8 +3,8 @@ The Git-Hygienist CLI
 A Go-based command-line tool engineered for validating git commit history against conventional standards to ensure repository hygiene and architectural consistency.
 
 Language | Status | Purpose
----      |---    |---
-Go	      Portfolio / Educational	  Git Hygiene & Compliance
+:---      |:---    |:---
+Go	     | Portfolio / Educational	|  Git Hygiene & Compliance
 
 Project Overview
 
