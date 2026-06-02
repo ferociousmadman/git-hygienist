@@ -18,13 +18,8 @@ type Commit struct {
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "git-hygienist",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A Go-based local CLI tool engineered for validating git commit history against Conventional Commit standards.",
+	Long:  `performs pattern matching to validate standard commit types like feat:, fix:, and docs. There will be an automated Health Feedback with cobra, which will have a commit health check that evaluates individual entries and provides immediate terminal feedback on compliance status. And there's validation logic that currently processes a commitObjects collection, which should increase performance when it's going through repository history.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },

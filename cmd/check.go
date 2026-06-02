@@ -5,7 +5,9 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strings"
+	"text/tabwriter"
 
 	"github.com/spf13/cobra"
 )
@@ -15,46 +17,52 @@ var (
 	CommitTwo = Commit{Hash: "e5f6g7h", Author: "ferociousmadman", Message: "fix: bug in main.go"}
 )
 
-// checkCmd represents the check command
 var checkCmd = &cobra.Command{
 	Use:   "check",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Check commit health",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("check called")
-		fmt.Printf("Git-Hygienist: Checking your commit health...\n")
 		commitObjects := []Commit{CommitOne, CommitTwo}
 
-		for i := range len(commitObjects) {
-			fmt.Printf("%v\n", commitObjects[i])
-			if strings.HasPrefix(commitObjects[i].Message, "feat:") {
-				println("commit type feat")
-			} else if strings.HasPrefix(commitObjects[i].Message, "fix:") {
-				println("commit type fix")
-			} else if strings.HasPrefix(commitObjects[i].Message, "docs:") {
-				println("commit type docs")
-			} else {
-				println("fail")
+		// Initialize tabwriter: minwidth, tabwidth, padding, padchar, flags
+		// tabwriter.Debug flags tabwriter to automatically draw vertical '|' lines
+		w := tabwriter.NewWriter(os.Stdout, 0, 0, 3, ' ', tabwriter.Debug)
+
+		// 1. Print Top Border
+		fmt.Fprintln(w, "+---------+------------------+---------+---------+")
+
+		// 2. Print Header Row (Columns must be separated by tabs '\t')
+		fmt.Fprintln(w, " HASH\t AUTHOR\t TYPE\t STATUS\t")
+
+		// 3. Print Header Separator
+		fmt.Fprintln(w, "+---------+------------------+---------+---------+")
+
+		for _, c := range commitObjects {
+			status := "FAIL"
+			commitType := "unknown"
+
+			if strings.HasPrefix(c.Message, "feat:") {
+				commitType = "feat"
+				status = "PASS"
+			} else if strings.HasPrefix(c.Message, "fix:") {
+				commitType = "fix"
+				status = "PASS"
+			} else if strings.HasPrefix(c.Message, "docs:") {
+				commitType = "docs"
+				status = "PASS"
 			}
+
+			// 4. Print Data Row (Notice the padding spaces and trailing tab)
+			fmt.Fprintf(w, " %s\t %s\t %s\t %s\t\n", c.Hash, c.Author, commitType, status)
 		}
+
+		// 5. Print Bottom Border
+		fmt.Fprintln(w, "+---------+------------------+---------+---------+")
+
+		// Flush buffers the text, calculates the column widths, and prints the clean table
+		w.Flush()
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(checkCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// checkCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// checkCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
