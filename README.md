@@ -1,6 +1,6 @@
-Git-Hygienist CLI
+Git-Hygienist CLI (prototype project)
 
-Git-Hygienist CLI is a terminal-based utility designed to automate the auditing of repository health through commit history analysis. It streamlines developer exerience by validating local commit messages against conventional standards, ensuring maintainable and structured version control across the development lifecycle.
+Git-Hygienist CLI is a prototype (not complete yet) terminal-based utility designed to automate the auditing of repository health through commit history analysis. It streamlines developer exerience by validating local commit messages against conventional standards, ensuring maintainable and structured version control across the development lifecycle.
 
 Portfolio Project
 
