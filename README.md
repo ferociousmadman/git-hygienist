@@ -43,16 +43,7 @@ During development, the project transitioned away from external packages such as
 
 Rather than troubleshooting external dependency versioning, the project pivoted to a native implementation using text/tabwriter. This minimizes the final binary size, eliminates dependency debt, and showcases an understanding of Go’s built-in formatting capabilities.
 
-Visual Demonstration
 
-When executing the check command, Git-Hygienist produces a structured audit of the current repository state:
-
-+-----------------------+------------------+--------+----------+
-| HASH    | AUTHOR           | TYPE   | STATUS   |
-+-----------------------+------------------+--------+----------+
-| a1b2c3d | ferociousmadman  | feat   | PASS     |
-| e5f6g7h | ferociousmadman  | fix    | PASS     |
-+-----------------------+------------------+--------+----------+
 
 
 Installation & Usage
